@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('log-observable-e2e', () => {
+describe('log-observable-app-e2e', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
