@@ -1,7 +1,5 @@
 # log-observable
 
-This library was generated with [Nx](https://nx.dev).
+A simple observable logger based on [article](https://netbasal.com/creating-custom-operators-in-rxjs-32f052d69457) by Netanel Basal.
 
-## Running unit tests
-
-Run `nx test log-observable` to execute the unit tests.
+It includes colors and seeds for different instances of the logger.
