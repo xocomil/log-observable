@@ -7,10 +7,10 @@ export default defineConfig({
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
       webServerCommands: {
-        default: 'nx run log-observable:serve:development',
-        production: 'nx run log-observable:serve:production',
+        default: 'nx run log-observable-app:serve:development',
+        production: 'nx run log-observable-app:serve:production',
       },
-      ciWebServerCommand: 'nx run log-observable:serve-static',
+      ciWebServerCommand: 'nx run log-observable-app:serve-static',
     }),
     baseUrl: 'http://localhost:4200',
   },

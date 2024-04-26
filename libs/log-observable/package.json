@@ -1,6 +1,6 @@
 {
   "name": "@xocomil/log-observable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
     "rxjs": "~7.8.1"
   },
