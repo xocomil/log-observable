@@ -1,1 +1,1 @@
-export * from './lib/log-observable/log-observable.component';
+export * from './lib/log-observable.operator';
