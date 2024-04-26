@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'log-observable-app',
+  displayName: 'log-observable',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/log-observable-app',
+  coverageDirectory: '../../coverage/libs/log-observable',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
