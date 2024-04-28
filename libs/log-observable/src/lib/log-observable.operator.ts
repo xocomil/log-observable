@@ -1,34 +1,15 @@
 // Operator based on article https://netbasal.com/creating-custom-operators-in-rxjs-32f052d69457
 
 import { tap } from 'rxjs';
+import { createColors } from './types/hsl.type';
 
-const nextBackgroundColors = [
-  '009900',
-  '006600',
-  '336600',
-  '669900',
-  '009933',
-  '99cc00',
-  '00cc66',
-];
-const errorBackgroundColors = [
-  'E91E63',
-  'cc3300',
-  'cc6600',
-  'ff9900',
-  'ff3300',
-  'ff0000',
-  'cc0000',
-];
-const completeBackgroundColors = [
-  '000099',
-  '003399',
-  '0000cc',
-  '0033cc',
-  '0000ff',
-  '3333ff',
-  '333399',
-];
+const greenBase = { h: 120, s: 100, l: 30 } as const;
+const redBase = { h: 0, s: 100, l: 30 } as const;
+const blueBase = { h: 240, s: 100, l: 30 } as const;
+
+const nextBackgroundColors = createColors(greenBase);
+const errorBackgroundColors = createColors(redBase);
+const completeBackgroundColors = createColors(blueBase);
 
 const randomColor = (colors: string[]): string => {
   const randomIndex = Math.floor(Math.random() * (colors.length - 1));
@@ -49,21 +30,21 @@ export const logObservable = <T>(tag: string) => {
     next(value) {
       console.log(
         `%c[${tag} [${messageKey}]: Next]`,
-        `background: #${backgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
+        `background: ${backgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
         value,
       );
     },
     error(error) {
       console.log(
         `%c[${tag} [${messageKey}]: Error]`,
-        `background: #${errorBackgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
+        `background: ${errorBackgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
         error,
       );
     },
     complete() {
       console.log(
         `%c[${tag}  [${messageKey}]]: Complete`,
-        `background: #${completeBackgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
+        `background: ${completeBackgroundColor}; color: #fff; padding: 3px; font-size: 9px;`,
       );
     },
   });
