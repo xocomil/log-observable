@@ -29,10 +29,30 @@ yarn add @xocomil/log-observable -D
 
 ### Basic Usage
 
-![Simple Logger Output](/images/SimpleCase.png)
+![Simple Logger Output](/images/SimpleCase.png | width=600)
+
+The simplest case is just logging what your observable emits. You can add `logObservable('some tag')` anywhere in your observable pipe to see what is being emitted at that point.
 
 ```typescript
 import { logObservable } from '@xocomil/log-observable';
 
-const simpleCase$ = from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).pipe(logObservable('Simple Case')).subscrbe();
+from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).pipe(logObservable('Simple Case')).subscribe();
+```
+
+### Multiple Loggers in Same Pipe
+
+![Multiple Loggers Output](/images/MultipleLoggers.png | width=600)
+
+Each logger is given a unique ID and one of 8 colors to help differentiate between them. You can add multiple loggers to the same pipe to see what is happening at different points.
+
+```typescript
+import { logObservable } from '@xocomil/log-observable';
+
+from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  .pipe(
+    logObservable('Simple Case'),
+    map((value) => value ** 3),
+    logObservable('Map Case'),
+  )
+  .subscribe();
 ```
