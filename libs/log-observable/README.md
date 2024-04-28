@@ -56,3 +56,26 @@ from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   )
   .subscribe();
 ```
+### Handling Errors
+
+<img alt="Error Handling" src="/images/ErrorLogger.png" width="600" />
+
+The logger handles errors and logs them in red. This can help you see where an error is occurring in your observable pipes.
+
+```typescript
+import { logObservable } from '@xocomil/log-observable';
+
+from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  .pipe(
+    logObservable('Simple Case'),
+    map((value) => value ** 3),
+    logObservable('Map Case'),
+    tap((value) => {
+      if (value >= 300) {
+        throw new Error('Value is too high');
+      }
+    }),
+    logObservable('Simple Error Case'),
+  )
+  .subscribe();
+```
