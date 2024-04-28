@@ -1,12 +1,21 @@
 {
   "name": "@xocomil/log-observable",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "A simple logger to help debug RxJS observables.",
+  "keywords": [
+    "rxjs",
+    "observable",
+    "log",
+    "debug"
+  ],
+  "homepage": "https://github.com/xocomil/log-observable/tree/main/libs/log-observable",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xocomil/log-observable.git"
+  },
   "peerDependencies": {
-    "@angular/common": "^17.3.0",
-    "@angular/core": "^17.3.0"
+    "rxjs": "~7.8.1"
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
+  "dependencies": {},
   "sideEffects": false
 }
