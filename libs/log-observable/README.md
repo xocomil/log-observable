@@ -2,8 +2,7 @@
 
 A simple observable logger based on [article](https://netbasal.com/creating-custom-operators-in-rxjs-32f052d69457) by Netanel Basal. It includes colors and seeds for different instances of the logger.
 
-[!TIP]
-`log-observable` is a library to help debug observables during development. You should avoid using it in production.
+> [!TIP] `log-observable` is a library to help debug observables during development. You should avoid using it in production.
 
 ## Installation
 
