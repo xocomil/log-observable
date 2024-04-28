@@ -1,23 +1,6 @@
 :host {
+  display: block;
   margin: auto;
+  height: 100%;
   max-width: 80%;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 1rem;
-
-  div {
-    height: 100px;
-    display: flex;
-    place-content: center;
-    align-items: center;
-    font-weight: 800;
-
-    &.light-text {
-      color: white;
-    }
-
-    &.dark-text {
-      color: black;
-    }
-  }
 }
