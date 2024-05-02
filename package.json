@@ -28,6 +28,9 @@
     "@angular/cli": "17.3.6",
     "@angular/compiler-cli": "17.3.7",
     "@angular/language-service": "17.3.7",
+    "@faker-js/faker": "^8.4.1",
+    "@hirez_io/observer-spy": "^2.2.0",
+    "@ngneat/spectator": "^18.0.2",
     "@nx/cypress": "18.3.4",
     "@nx/eslint": "18.3.4",
     "@nx/eslint-plugin": "18.3.4",
@@ -65,4 +68,3 @@
     "node": "20.12.2"
   }
 }
-
