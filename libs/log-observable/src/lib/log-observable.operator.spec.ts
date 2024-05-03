@@ -125,4 +125,33 @@ describe('LogObservableOperator', () => {
       observerSpy1.unsubscribe();
     });
   });
+
+  describe('background colors', () => {
+    it('should have different background colors for next, error, and complete', () => {
+      const observerSpy = subscribeSpyTo(of(true).pipe(logObservable('test')));
+      const observerSpy2 = subscribeSpyTo(
+        throwError(() => new Error()).pipe(
+          logObservable('test'),
+          catchError(() => of(null)),
+        ),
+      );
+
+      const colorMatcher = /background: hsl\((-*\d+)deg/;
+
+      const [, nextColor] = logSpy.mock.calls[0][1].match(colorMatcher);
+      const [, completeColor] = logSpy.mock.calls[1][1].match(colorMatcher);
+      const [, errorColor] = logSpy.mock.calls[2][1].match(colorMatcher);
+
+      const green = 120;
+      const blue = 240;
+      const red = 0;
+
+      expect(Math.abs(+nextColor - green) <= 40).toBe(true);
+      expect(Math.abs(+completeColor - blue) <= 40).toBe(true);
+      expect(Math.abs(+errorColor - red) <= 40).toBe(true);
+
+      observerSpy.unsubscribe();
+      observerSpy2.unsubscribe();
+    });
+  });
 });
