@@ -85,4 +85,44 @@ describe('LogObservableOperator', () => {
       observerSpy.unsubscribe();
     });
   });
+
+  describe('tag', () => {
+    it('should add a tag to the log message', () => {
+      const testTag = faker.word.words();
+
+      const observerSpy = subscribeSpyTo(of(null).pipe(logObservable(testTag)));
+
+      expect(logSpy).toHaveBeenCalledTimes(2);
+      expect(logSpy).toHaveBeenNthCalledWith(
+        1,
+        expect.stringContaining(`%c[${testTag} `),
+        expect.any(String),
+        null,
+      );
+      expect(logSpy).toHaveBeenNthCalledWith(
+        2,
+        expect.stringContaining(`%c[${testTag}`),
+        expect.any(String),
+      );
+
+      observerSpy.unsubscribe();
+    });
+  });
+
+  describe('logger id', () => {
+    it('should add a unique id to each logger instance', () => {
+      const observerSpy1 = subscribeSpyTo(
+        of(true).pipe(logObservable('first'), logObservable('second')),
+      );
+
+      console.log(logSpy.mock.calls);
+
+      const [loggerId1] = logSpy.mock.calls[0][0].match(/\[first \[(\w+)\]:/);
+      const [loggerId2] = logSpy.mock.calls[1][0].match(/\[second \[(\w+)\]:/);
+
+      expect(loggerId1).not.toBe(loggerId2);
+
+      observerSpy1.unsubscribe();
+    });
+  });
 });
