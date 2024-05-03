@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { subscribeSpyTo } from '@hirez_io/observer-spy';
-import { of } from 'rxjs';
+import { catchError, of, throwError } from 'rxjs';
 import { logObservable } from './log-observable.operator';
 
 describe('LogObservableOperator', () => {
@@ -40,13 +40,49 @@ describe('LogObservableOperator', () => {
         expect(logSpy).toHaveBeenCalledTimes(2);
         expect(logSpy).toHaveBeenNthCalledWith(
           1,
-          expect.any(String),
+          expect.stringContaining(': Next]'),
           expect.any(String),
           valueToLog,
         );
 
         observerSpy.unsubscribe();
       });
+    });
+  });
+
+  describe('logging errors', () => {
+    it('should log an error', () => {
+      const error = new Error('Test error');
+      const observerSpy = subscribeSpyTo(
+        throwError(() => error).pipe(
+          logObservable('test'),
+          catchError(() => of(null)),
+        ),
+      );
+
+      expect(logSpy).toHaveBeenCalledTimes(1);
+      expect(logSpy).toHaveBeenCalledWith(
+        expect.stringContaining(': Error]'),
+        expect.any(String),
+        error,
+      );
+
+      observerSpy.unsubscribe();
+    });
+  });
+
+  describe('logging completion', () => {
+    it('should log completion', () => {
+      const observerSpy = subscribeSpyTo(of(null).pipe(logObservable('test')));
+
+      expect(logSpy).toHaveBeenCalledTimes(2);
+      expect(logSpy).toHaveBeenNthCalledWith(
+        2,
+        expect.stringContaining(': Complete'),
+        expect.any(String),
+      );
+
+      observerSpy.unsubscribe();
     });
   });
 });
