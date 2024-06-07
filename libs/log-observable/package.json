@@ -1,6 +1,6 @@
 {
   "name": "@xocomil/log-observable",
-  "version": "0.0.2",
+  "version": "0.4.0",
   "description": "A simple logger to help debug RxJS observables.",
   "keywords": [
     "rxjs",
