@@ -2,12 +2,12 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
   "release": {
-    "projects": ["log-observable"],
-    "changelog": {
-      "projectChangelogs": {
-        "createRelease": "github"
+    "projects": ["log-observable"]
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/libs/{projectName}",
+        "currentVersionResolver": "git-tag"
       }
-    }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
