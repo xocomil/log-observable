@@ -2,7 +2,12 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "main",
   "release": {
-    "projects": ["log-observable"]
+    "projects": ["log-observable"],
+    "changelog": {
+      "projectChangelogs": {
+        "createRelease": "github"
+      }
+    }
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
