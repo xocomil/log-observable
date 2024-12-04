@@ -54,7 +54,7 @@
     "eslint-plugin-cypress": "^3.3.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "jest-preset-angular": "14.1.0",
+    "jest-preset-angular": "14.4.2",
     "jsonc-eslint-parser": "^2.4.0",
     "ng-packagr": "18.0.0",
     "nx": "19.2.1",
