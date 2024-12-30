@@ -9,6 +9,21 @@
         "currentVersionResolver": "git-tag"
       }
     },
+    "conventionalCommits": {
+      "types": {
+        "chore": true,
+        "fix": true
+      }
+    },
+    "changelog": {
+      "projectChangelogs": {
+        "renderOptions": {
+          "authors": true,
+          "commitReferences": true,
+          "versionTitle": true
+        }
+      }
+    },
     "namedInputs": {
       "default": ["{projectRoot}/**/*", "sharedGlobals"],
       "production": [
