@@ -30,7 +30,7 @@
     "@angular/language-service": "19.0.5",
     "@faker-js/faker": "^8.4.1",
     "@hirez_io/observer-spy": "^2.2.0",
-    "@ngneat/spectator": "^18.0.2",
+    "@ngneat/spectator": "19.3.0",
     "@nx/cypress": "20.3.0",
     "@nx/eslint": "20.3.0",
     "@nx/eslint-plugin": "20.3.0",
