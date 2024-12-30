@@ -36,7 +36,17 @@
       "files": ["*.json"],
       "parser": "jsonc-eslint-parser",
       "rules": {
-        "@nx/dependency-checks": "error"
+        "@nx/dependency-checks": [
+          "error",
+          {
+            "ignoredDependencies": [
+              "@ngneat/spectator",
+              "@faker-js/faker",
+              "@hirez_io/observer-spy",
+              "jest-preset-angular"
+            ]
+          }
+        ]
       }
     }
   ]
