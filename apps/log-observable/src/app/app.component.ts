@@ -19,10 +19,9 @@ const fixedTimeMs = 50;
 const numberToTake = 5;
 
 @Component({
-  standalone: true,
-  imports: [AsyncPipe],
-  selector: 'app-root',
-  template: `
+    imports: [AsyncPipe],
+    selector: 'app-root',
+    template: `
     <h1>Log Observable</h1>
 
     <p>Check out the browser console to see the output.</p>
@@ -56,7 +55,7 @@ const numberToTake = 5;
     </h4>
     <pre>{{ fixedMemoryLeakCase$ | async }}</pre>
   `,
-  styleUrl: './app.component.css',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   protected readonly simpleCase$ = from(
