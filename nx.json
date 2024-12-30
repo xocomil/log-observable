@@ -94,5 +94,14 @@
     },
     "nxCloudAccessToken": "MDVkYWIxMWYtZDFkNy00Y2Q3LWIxMjUtYzUyNTBmN2NiMTRmfHJlYWQtd3JpdGU="
   },
-  "nxCloudId": "6772ff5e41ab203bbcc85907"
+  "nxCloudId": "6772ff5e41ab203bbcc85907",
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      },
+      "include": ["apps/log-observable/**/*", "libs/log-observable/**/*"]
+    }
+  ]
 }

@@ -29,9 +29,6 @@
         "jestConfig": "libs/log-observable/jest.config.ts"
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    },
     "nx-release-publish": {
       "dependsOn": ["build"],
       "options": {
